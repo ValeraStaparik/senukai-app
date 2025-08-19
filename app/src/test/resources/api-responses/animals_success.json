@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Lion",
+        "taxonomy": {
+            "kingdom": "Animalia",
+            "order": "Carnivora",
+            "family": "Felidae"
+        },
+        "location": "Africa, India",
+        "speed": {
+            "metric": "56",
+            "imperial": "35"
+        },
+        "diet": "Carnivore",
+        "lifespan": "8 - 15 years",
+        "image": "lion.jpg"
+    },
+    {
+        "name": "Gorilla",
+        "taxonomy": {
+            "kingdom": "Animalia",
+            "order": "Primates",
+            "family": "Hominidae"
+        },
+        "location": "Africa",
+        "speed": {
+            "metric": "40",
+            "imperial": "25"
+        },
+        "diet": "Herbivore",
+        "lifespan": "35-50 years",
+        "image": "gorilla.jpg"
+    },
+    {
+        "name": "Elephant",
+        "taxonomy": {
+            "kingdom": "Animalia",
+            "order": "Proboscidea",
+            "family": "Elephantidae"
+        },
+        "location": "Africa, Middle East, South Asia",
+        "speed": {
+            "metric": "40",
+            "imperial": "25"
+        },
+        "diet": "Herbivore",
+        "lifespan": "55 - 70 years",
+        "image": "elephant.jpg"
+    }
+]
