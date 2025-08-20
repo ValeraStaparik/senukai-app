@@ -21,12 +21,9 @@ fun LoadingIndicator(
     )
 }
 
-// region Previews
-
 @Preview
 @Composable
 private fun Preview() {
     LoadingIndicator()
 }
 
-// endregion Previews

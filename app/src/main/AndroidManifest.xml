@@ -7,7 +7,7 @@
 
     <application
         android:allowBackup="true"
-        android:name=".SenukaiApp"
+        android:name=".app.SenukaiApp"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -17,7 +17,7 @@
         android:theme="@style/Theme.SenukaiApp"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".app.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.SenukaiApp">
             <intent-filter>

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
 
     //KSP
     alias(libs.plugins.ksp)
@@ -12,11 +13,11 @@ plugins {
 
 android {
     namespace = "com.senukai"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.senukai"
-        minSdk = 24
+        minSdk = 29
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -46,6 +47,11 @@ android {
     }
 }
 
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+    // Room 2.7+ generates Kotlin code on KSP by default; no need for room.generateKotlin flag.
+}
+
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -65,13 +71,15 @@ dependencies {
 
     // Retrofit
     implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.gson)
+    implementation(libs.okhttp.logging.interceptor)
+    implementation(libs.retrofit.kotlinx.serialization.converter)
 
     // Coil
     implementation(libs.coil.compose)
 
     // Dagger Hilt
     implementation(libs.dagger.hilt.android)
+    implementation(libs.androidx.junit.ktx)
     ksp(libs.dagger.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
     ksp(libs.androidx.hilt.navigation.compose)
@@ -91,10 +99,22 @@ dependencies {
 
     // Coroutines
     testImplementation(libs.kotlinx.coroutines.test)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
+
+
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+    implementation(libs.androidx.room.paging)
+    testImplementation(libs.androidx.room.testing)
 
     // Mockk
     testImplementation(libs.mockk)
     testImplementation(kotlin("test"))
 
     testImplementation(libs.mockwebserver)
+    testImplementation(libs.androidx.navigation.testing)
 }

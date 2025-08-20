@@ -1,13 +1,12 @@
 package com.senukai.app.presentation.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
-import com.senukai.app.presentation.features.animal_details.AnimalDetailsScreen
-import com.senukai.app.presentation.features.animal_list.AnimalListScreen
+import com.senukai.app.presentation.features.bookList.BookListScreen
+import com.senukai.app.presentation.features.book_details.BookDetailsScreen
+import com.senukai.app.presentation.features.reading_book_status.BooksListScreen
 
 @Composable
 fun AppNavigation() {
@@ -15,19 +14,34 @@ fun AppNavigation() {
 
     NavHost(
         navController = navController,
-        startDestination = Screens.AnimalList.route
+        startDestination = ReadingStatusBookList
     ) {
-        composable(route = Screens.AnimalList.route) {
-            AnimalListScreen(navController = navController)
+        composable<ReadingStatusBookList> {
+            BooksListScreen(
+                onNavigateToBookList = { name ->
+                    navController.navigate(BookListRoute(name))
+                },
+                onNavigateToBookDetails = { name ->
+                    navController.navigate(BookDetailsRoute(name))
+                }
+            )
         }
 
-        composable(
-            route = Screens.AnimalDetails.route,
-            arguments = listOf(navArgument(AnimalDetailsArgs.NAME) {
-                type = NavType.StringType
-            })
-        ) {
-            AnimalDetailsScreen(navController = navController)
+        composable<BookListRoute> {
+            BookListScreen(
+                onNavigateBack = {
+                    navController.popBackStack()
+                },
+                onNavigateToBook = { name ->
+                    navController.navigate(BookDetailsRoute(name))
+                }
+            )
+        }
+
+        composable<BookDetailsRoute> { backStackEntry ->
+            BookDetailsScreen(
+                onNavigateBack = { navController.popBackStack() }
+            )
         }
     }
 }

@@ -64,8 +64,6 @@ fun InfoRow(
     }
 }
 
-// region Skeleton
-
 @Composable
 fun InfoRowSkeleton(
     modifier: Modifier = Modifier
@@ -105,10 +103,6 @@ fun InfoRowSkeleton(
     }
 }
 
-// endregion Skeleton
-
-// region Preview
-
 @Preview
 @Composable
 private fun Preview() {
@@ -124,5 +118,3 @@ private fun Preview() {
 fun InfoRowSkeletonPreview() {
     InfoRowSkeleton()
 }
-
-// endregion Preview

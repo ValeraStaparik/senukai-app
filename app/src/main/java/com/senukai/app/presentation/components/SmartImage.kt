@@ -8,7 +8,7 @@ import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
-import com.senukai.app.R
+import com.senukai.R
 
 @Composable
 fun SmartImage(
@@ -43,12 +43,9 @@ fun SmartImage(
     }
 }
 
-// region Previews
-
 @Preview
 @Composable
 private fun Preview() {
     SmartImage(url = null)
 }
 
-// endregion Previews

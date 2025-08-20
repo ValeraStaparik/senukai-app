@@ -1,20 +1,21 @@
 <resources>
     <string name="app_name">Senukai App</string>
-    <string name="animal_list_title">Animals</string>
-    <string name="animal_detail_title">Animal Detail</string>
-    <string name="fetch_animals">Fetch Animals</string>
+    <string name="book_list_title">Reading Status</string>
+    <string name="book_detail_title">Book Detail</string>
+    <string name="fetch_books">Fetch Books</string>
     <string name="unknown_error">Unknown Error</string>
     <string name="try_again">Try Again</string>
-    <string name="animal_details_title">Animal Details</string>
-    <string name="location">Location</string>
-    <string name="diet">Diet</string>
-    <string name="lifespan">Lifespan</string>
-    <string name="taxonomy">Taxonomy</string>
-    <string name="kingdom">Kingdom</string>
+    <string name="book_details_title">Book Details</string>
+    <string name="author">Author</string>
+    <string name="number">Number</string>
+    <string name="description">Description</string>
+    <string name="id">Id</string>
+    <string name="publication_date">Publication date:</string>
     <string name="order">Order</string>
     <string name="family">Family</string>
     <string name="speed">Speed</string>
     <string name="metric">Metric</string>
     <string name="imperial">Imperial</string>
     <string name="n_a">N/A</string>
+    <string name="button_all">All</string>
 </resources>

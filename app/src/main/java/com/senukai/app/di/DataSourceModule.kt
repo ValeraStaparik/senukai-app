@@ -1,8 +1,11 @@
 package com.senukai.app.di
 
-import com.senukai.app.data.remote.api.AnimalService
-import com.senukai.app.data.source.remote.AnimalDataSource
-import com.senukai.app.data.source.remote.AnimalDataSourceImpl
+import com.senukai.app.data.remote.api.ApiService
+import com.senukai.app.data.source.local.BooksLocalDataSource
+import com.senukai.app.data.source.local.BooksLocalDataSourceImpl
+import com.senukai.app.data.source.remote.BooksRemoteDataSource
+import com.senukai.app.data.source.remote.BooksRemoteDataSourceImpl
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,9 +14,13 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DataSourceModule {
+abstract class DataSourceModule {
+
+    @Binds
     @Singleton
-    @Provides
-    fun provideAnimalDataSource(service: AnimalService): AnimalDataSource =
-        AnimalDataSourceImpl(service = service)
+    abstract fun bindBooksRemoteDataSource(impl: BooksRemoteDataSourceImpl): BooksRemoteDataSource
+
+    @Binds
+    @Singleton
+    abstract fun bindBooksLocalDataSource(impl: BooksLocalDataSourceImpl): BooksLocalDataSource
 }

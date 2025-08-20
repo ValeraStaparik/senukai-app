@@ -21,7 +21,7 @@ import com.senukai.app.ui.theme.Purple40
 @Composable
 fun CustomTopAppBar(
     title: String,
-    onNavigateBack: () -> Unit
+    onNavigateBack: (() -> Unit)? = null
 ) {
     Surface(shadowElevation = 5.dp) {
         TopAppBar(
@@ -29,11 +29,15 @@ fun CustomTopAppBar(
                 Text(text = title, fontSize = 20.sp, fontWeight = FontWeight.Bold)
             },
             navigationIcon = {
-                IconButton(onClick = { onNavigateBack() }) {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Back navigation icon",
-                    )
+                if (onNavigateBack != null) {
+                    IconButton(onClick = {
+                        onNavigateBack()
+                    }) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "Back navigation icon",
+                        )
+                    }
                 }
             },
             colors = TopAppBarDefaults.topAppBarColors(
@@ -46,8 +50,6 @@ fun CustomTopAppBar(
     }
 }
 
-// region Previews
-
 @Preview
 @Composable
 private fun Preview() {
@@ -56,5 +58,3 @@ private fun Preview() {
         onNavigateBack = {}
     )
 }
-
-// endregion Previews

@@ -1,6 +1,6 @@
 package com.senukai.app.di
 
-import com.senukai.app.data.remote.api.AnimalService
+import com.senukai.app.data.remote.api.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,6 +13,6 @@ import javax.inject.Singleton
 object ServiceModule {
     @Provides
     @Singleton
-    fun provideAnimalService(retrofit: Retrofit): AnimalService =
-        retrofit.create(AnimalService::class.java)
+    fun provideApiService(retrofit: Retrofit): ApiService =
+        retrofit.create(ApiService::class.java)
 }

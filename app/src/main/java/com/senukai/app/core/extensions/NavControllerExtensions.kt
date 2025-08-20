@@ -10,11 +10,3 @@ fun NavController.popBackStackOrFinish() {
     }
 }
 
-fun NavController.navigateIfNotCurrent(targetRoute: String) {
-    val current = currentDestination?.route?.substringBefore("/")
-    val target = targetRoute.substringBefore("/")
-
-    if (current != target) {
-        navigate(targetRoute)
-    }
-}

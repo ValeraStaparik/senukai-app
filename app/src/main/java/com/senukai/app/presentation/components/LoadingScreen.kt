@@ -29,12 +29,8 @@ fun LoadingScreen(
     }
 }
 
-// region Previews
-
 @Preview
 @Composable
 private fun Preview() {
     LoadingScreen()
 }
-
-// endregion Previews

@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.core.view.WindowInsetsControllerCompat
 import com.senukai.app.presentation.navigation.AppNavigation
-import com.senukai.app.ui.theme.KotlinComposeMVIAnimalsAppTheme
+import com.senukai.app.ui.theme.SenukaiAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setWhiteIconsOnStatusBar(window)
         setContent {
-            KotlinComposeMVIAnimalsAppTheme {
+            SenukaiAppTheme {
                 Main()
             }
         }
